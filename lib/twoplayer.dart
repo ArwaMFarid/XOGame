@@ -211,7 +211,7 @@ class _TwoPlayerState extends State<TwoPlayer> {
                 });
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 8, 27, 61),
+                backgroundColor: Color.fromARGB(255, 32, 126, 35),
                 minimumSize: Size(170, 40),
                 shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.zero),
@@ -232,7 +232,7 @@ class _TwoPlayerState extends State<TwoPlayer> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 8, 27, 61),
+                backgroundColor: Color.fromARGB(255, 32, 126, 35),
                 minimumSize: Size(170, 40),
                 shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.zero),

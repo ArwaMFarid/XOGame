@@ -5,6 +5,7 @@ class EnterNames extends StatefulWidget {
   @override
   _EnterNamesState createState() => _EnterNamesState();
 }
+
 class _EnterNamesState extends State<EnterNames> {
   TextEditingController player1Controller = TextEditingController();
   TextEditingController player2Controller = TextEditingController();
@@ -46,24 +47,33 @@ class _EnterNamesState extends State<EnterNames> {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                final player1Name = player1Controller.text.trim().isEmpty
-                    ? "Player 1"
-                    : player1Controller.text.trim();
-                final player2Name = player2Controller.text.trim().isEmpty
-                    ? "Player 2"
-                    : player2Controller.text.trim();
+                final player1Name =
+                    player1Controller.text.trim().isEmpty
+                        ? "Player 1"
+                        : player1Controller.text.trim();
+                final player2Name =
+                    player2Controller.text.trim().isEmpty
+                        ? "Player 2"
+                        : player2Controller.text.trim();
 
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => TwoPlayer(
-                      player1Name: player1Name,
-                      player2Name: player2Name,
-                    ),
+                    builder:
+                        (_) => TwoPlayer(
+                          player1Name: player1Name,
+                          player2Name: player2Name,
+                        ),
                   ),
                 );
               },
-              child: Text("Start Game"),
+              child: Text(
+                "Start Game",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Color.fromARGB(255, 32, 126, 35),
+                ),
+              ),
             ),
           ],
         ),
