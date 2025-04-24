@@ -29,13 +29,48 @@ class _TwoPlayerState extends State<TwoPlayer> {
       });
 
       String winner = checkWinner(board);
+
       if (winner != "") {
         setState(() {
           gameOver = true;
           if (winner == "O") {
             pointplayer1++;
+            winner = widget.player1Name;
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  content: Text("$winner is Win 😉"),
+                  actions: [
+                    TextButton(
+                      child: Text("Done"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
           } else {
             pointplayer2++;
+            winner = widget.player2Name;
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  content: Text("$winner is Win 😉"),
+                  actions: [
+                    TextButton(
+                      child: Text("Done"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
           }
         });
 
@@ -45,6 +80,22 @@ class _TwoPlayerState extends State<TwoPlayer> {
       } else if (!board.contains("")) {
         setState(() {
           gameOver = true;
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                content: Text("Nobody Wins – It’s a Tie!"),
+                actions: [
+                  TextButton(
+                    child: Text("Done"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
         });
 
         Future.delayed(Duration(seconds: 1), () {
@@ -122,6 +173,7 @@ class _TwoPlayerState extends State<TwoPlayer> {
                   style: TextStyle(fontSize: 30),
                   textAlign: TextAlign.center,
                 ),
+
                 SizedBox(width: 180),
                 Text(
                   "$pointplayer2",
